@@ -27,17 +27,18 @@ public class RemoveHabitTab extends Tab implements MouseListener {
 
     public RemoveHabitTab(Main controller, InfoManager infoManager) throws IOException {
         super(controller, infoManager);
-
+        setBackground(new java.awt.Color(178, 130,181));
         placeRemoveHabitButton();
 
         JPanel removeHabitBlock = new JPanel(new GridLayout(4,0));
+        removeHabitBlock.setBackground(new java.awt.Color(178, 130,181));
         removeHabitBlock.setSize(Main.WIDTH - (Main.WIDTH / 5),
                 Main.HEIGHT - (Main.HEIGHT / 5));
 
         reportMessage = new JLabel("Here is your list of habits!.");
-        reportMessage.setFont(new Font("Georgia", Font.BOLD,14));
+        reportMessage.setFont(new Font("Georgia", Font.BOLD,18));
         reportMessage2 = new JLabel("Please select the habit you want to remove");
-        reportMessage2.setFont(new Font("Georgia", Font.BOLD,14));
+        reportMessage2.setFont(new Font("Georgia", Font.BOLD,18));
         JTextArea textArea = new JTextArea(4, 30);
         reportPane = new JScrollPane(new JScrollPane(textArea));
         removeHabitBlock.add(reportMessage);
@@ -59,7 +60,7 @@ public class RemoveHabitTab extends Tab implements MouseListener {
     //EFFECTS: adds a generate button RemoveHabit
     private void placeRemoveHabitButton() {
         JButton b2 = new JButton("Remove Habit");
-        b2.setFont(new Font("Harrington", Font.BOLD,15));
+        b2.setFont(new Font("Harrington", Font.BOLD,18));
         JPanel buttonRow = formatButtonRow(b2);
 
         b2.addActionListener(new ActionListener() {

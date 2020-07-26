@@ -26,6 +26,7 @@ public class CheckCompletionTab extends Tab implements MouseListener {
 
     public CheckCompletionTab(Main controller, InfoManager infoManager) {
         super(controller, infoManager);
+        setBackground(new java.awt.Color(178, 130,181));
 
         placeCheckCompletionButton();
 
@@ -34,12 +35,13 @@ public class CheckCompletionTab extends Tab implements MouseListener {
                 Main.HEIGHT - (Main.HEIGHT / 5));
 
         reportMessage2 = new JLabel("Please select a habit from the list");
-        reportMessage2.setFont(new Font("Georgia", Font.BOLD, 14));
+        reportMessage2.setFont(new Font("Georgia", Font.BOLD, 18));
         JTextArea textArea = new JTextArea(4, 30);
         reportPane = new JScrollPane(new JScrollPane(textArea));
         chechCompletionBlock.add(reportMessage2);
 
         chechCompletionBlock.add(reportPane);
+        chechCompletionBlock.setBackground(new java.awt.Color(178, 130,181));
 
         list.addMouseListener(this);
         list.setSelectionMode(ListSelectionModel.SINGLE_INTERVAL_SELECTION);
@@ -55,7 +57,7 @@ public class CheckCompletionTab extends Tab implements MouseListener {
     //EFFECTS: adds a generate button RemoveHabit
     private void placeCheckCompletionButton() {
         JButton b2 = new JButton("Check Completion");
-        b2.setFont(new Font("Harrington", Font.BOLD, 15));
+        b2.setFont(new Font("Harrington", Font.BOLD, 18));
         JPanel buttonRow = formatButtonRow(b2);
 
         b2.addActionListener(new ActionListener() {

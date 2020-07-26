@@ -1,12 +1,17 @@
 package ui;
 
+
 import model.HabitManager;
 import model.UserData;
 import ui.tabs.*;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
+import javax.swing.border.Border;
+import javax.swing.plaf.ColorUIResource;
 import java.awt.*;
 import java.io.IOException;
+import java.net.URL;
 
 public class Main extends JFrame {
 
@@ -20,6 +25,7 @@ public class Main extends JFrame {
     public static final int VIEW_HABIT_TAB_INDEX = 3;
     public static final int CHECK_COMPLETION_TAB_INDEX = 4;
     public static final int EXIT_TAB_INDEX = 5;
+    private static Border raisedbevel;
 
 
 
@@ -36,37 +42,54 @@ public class Main extends JFrame {
         data = new UserData(habits);
         infoManager = new InfoManager(habits, data);
 
-        getContentPane().setBackground(Color.gray);
+
+
+        getContentPane().setBackground(new java.awt.Color(50, 0,50));
         setSize(WIDTH, HEIGHT);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         sidebar = new JTabbedPane();
         sidebar.setSize(100, 50);
         sidebar.setTabPlacement(JTabbedPane.LEFT);
-
         loadAddAndRemoveTabs();
         loadViewAndCheckTabs();
         add(sidebar);
         setVisible(true);
+
+
     }
 
     private void loadAddAndRemoveTabs() throws IOException {
+
+
+
         JPanel homeTab = new HomeTab(this, infoManager);
         homeTab.setBackground(Color.WHITE);
         add(homeTab, BorderLayout.CENTER);
+        sidebar.setBackground(Color.WHITE);
+        sidebar.setBorder( BorderFactory.createEmptyBorder( 10, 5, 0, 5 ) );
         sidebar.add(homeTab, HOME_TAB_INDEX);
         sidebar.setTitleAt(HOME_TAB_INDEX, "Home");
+
+
 
         JPanel addHabitTab = new AddHabitTab(this, infoManager);
         add(addHabitTab, BorderLayout.AFTER_LAST_LINE);
         sidebar.add(addHabitTab, ADD_HABIT_TAB_INDEX);
         sidebar.setTitleAt(ADD_HABIT_TAB_INDEX, "Add Habit");
 
+
         JPanel removeHabitTab = new RemoveHabitTab(this, infoManager);
         add(removeHabitTab, BorderLayout.SOUTH);
         sidebar.add(removeHabitTab, REMOVE_HABIT_TAB_INDEX);
         sidebar.setTitleAt(REMOVE_HABIT_TAB_INDEX, "Remove Habit");
-        sidebar.setSize(60, 60);
+        sidebar.setSize(70, 100);
+
     }
+
+
+
+
+
 
     private void loadViewAndCheckTabs() throws IOException {
         JPanel vieHabitTab = new ViewHabitsTab(this, infoManager);

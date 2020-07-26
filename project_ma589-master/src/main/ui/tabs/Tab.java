@@ -19,15 +19,17 @@ public abstract class Tab extends JPanel {
 
     //EFFECTS: creates and returns row with button included
     public JPanel formatButtonRow(JButton b) {
-        b.setSize(60,10);
+        b.setSize(60,20);
         b.setBorderPainted(true);
         b.setFocusPainted(true);
         b.setContentAreaFilled(true);
+
+
         JPanel p = new JPanel();
-        p.setBackground(Color.GRAY);
+        p.setBackground(new Color(0,0,0,0));
         GridLayout layout = new GridLayout(5,5);
-        layout.setHgap(5);
-        layout.setVgap(5);
+        //layout.setHgap(5);
+        //layout.setVgap(2);
         p.add(b);
 
         return p;

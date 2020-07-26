@@ -28,14 +28,15 @@ public class ViewHabitsTab extends Tab {
     public ViewHabitsTab(Main controller, InfoManager infoManager) throws IOException {
         super(controller, infoManager);
         removeHabitTab = new RemoveHabitTab(controller,infoManager);
-
+        setBackground(new java.awt.Color(178, 130,181));
         placeViewHabitButton();
 
         JPanel viewHabitBlock = new JPanel(new GridLayout(4,0));
+        viewHabitBlock.setBackground(new java.awt.Color(178, 130,181));
         viewHabitBlock.setSize(Main.WIDTH - (Main.WIDTH / 5),
                 Main.HEIGHT - (Main.HEIGHT / 5));
         reportMessage = new JLabel("Here is your list of habits!.");
-        reportMessage.setFont(new Font("Georgia", Font.BOLD,14));
+        reportMessage.setFont(new Font("Georgia", Font.BOLD,18));
         JTextArea textArea = new JTextArea(4, 30);
         reportPane = new JScrollPane(new JScrollPane(textArea));
         viewHabitBlock.add(reportMessage);
@@ -54,7 +55,7 @@ public class ViewHabitsTab extends Tab {
     //EFFECTS: adds a generate button RemoveHabit
     private void placeViewHabitButton() {
         JButton b3 = new JButton("View Habits");
-        b3.setFont(new Font("Harrington", Font.BOLD,15));
+        b3.setFont(new Font("Harrington", Font.BOLD,18));
         JPanel buttonRow = formatButtonRow(b3);
 
         b3.addActionListener(new ActionListener() {
